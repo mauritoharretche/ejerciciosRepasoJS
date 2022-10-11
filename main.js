@@ -68,10 +68,9 @@ top10(beers) */
 /* 4) Generar una función que reciba como parámetro un array
 de cervezas y devuelva un nuevo array con las 10 cervezas menos amargas */
 
-function top10(array) {
+/* function top10(array) {
     let top10Beers = []
     array.sort(function(a, b) {return a.ibu - b.ibu})
-
     for (let beer of array){
         if (top10Beers.length < 10){
             top10Beers.push({name:`${beer.name}`, abv: `${beer.abv}`, ibu: `${beer.ibu}`})
@@ -79,5 +78,37 @@ function top10(array) {
     }
     console.log(top10Beers)
 }
+top10(beers) */
 
-top10(beers)
+/* 5) Generar una función que reciba como parámetro un array de cervezas
+un nombre de propiedad y un valor booleano. Debe devolver un nuevo array
+con 10 cervezas ordenadas por la propiedad ingresada como segundo argumento
+de manera ascendente si el tercero es true o descendente si es false
+
+resultado = un array con 10 cervezas ordenadas por la propiedad 
+ingresada como segundo argumento
+de manera ascendente si el tercero es true o descendente si es false */
+
+// 1: crear funcion que recibe 3 parametros
+// 2: preguntar si es true o false para poder
+// 3: ordenar por la propiedad ingresada
+// 4: separar 10 cervezas (que ordene previamente)
+// 5: retornar las 10 cervezas separadas en un array
+
+
+function top10(array, propiedad, orden) {
+    let top10Beers = []
+    if (orden){
+        array.sort(function(a, b) {return `a.${propiedad}` - `b.${propiedad}`})
+    }
+    else {
+        array.sort(function(a, b) {return `b.${propiedad}` - `a.${propiedad}`})
+    }
+    for (let beer of array){
+        if (top10Beers.length < 10){
+            top10Beers.push({name:`${beer.name}`, abv: `${beer.abv}`, ibu: `${beer.ibu}`})
+        }
+    }
+    console.log(top10Beers)
+}
+top10(beers, "ibu", true)
