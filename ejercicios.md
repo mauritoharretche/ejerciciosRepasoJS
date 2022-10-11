@@ -1,4 +1,4 @@
-1) Guardar la información localmente
+1 ) Guardar la información localmente
 
 api.js
 
