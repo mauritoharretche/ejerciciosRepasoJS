@@ -60,9 +60,9 @@ y devuelva un nuevo array con las 10 cervezas más alcohólicas */
 //         FUNCION 3 CON METODOS
 
 function top10MostAlcohol(array) {
-    let top10Beers = array.sort(function(a, b) {return b.abv - a.abv}).filter((element, index) => (index <  10)).map((element) => ({name: element.name, abv: element.abv, ibu: element.ibu}))
+    let top10Beers = array.sort(function(a, b) {return b.abv - a.abv}).filter((element) => (element.abv)).slice(0,10)
 
-    console.table(top10Beers)
+    return console.table(top10Beers)
 }
 
 top10MostAlcohol(beers)
@@ -91,9 +91,9 @@ de cervezas y devuelva un nuevo array con las 10 cervezas menos amargas */
 //         FUNCION 4 CON METODOS
 
 function top10LessBitter(array) {
-    let top10Beers = array.sort(function(a, b) {return a.ibu - b.ibu}).filter((element, index) => (index <  10)).map((element) => ({name: element.name, abv: element.abv, ibu: element.ibu}))
+    let top10Beers = array.sort(function(a, b) {return a.ibu - b.ibu}).filter((element) => (element.ibu)).slice(0,10)
 
-    console.table(top10Beers)
+    return console.table(top10Beers)
 }
 top10LessBitter(beers)
 
@@ -140,9 +140,9 @@ de manera ascendente si el tercero es true o descendente si es false */
 function top10(array, propiedad, orden) {
     let top10Beers = []
     if (orden){
-        top10Beers = array.sort(function(a, b) {return a[propiedad] - b[propiedad] } ).filter((element, index) => (index <  10)).map((element) => ({name:element.name, abv: element.abv, ibu: element.ibu, [propiedad]: element[propiedad]} ))
+        top10Beers = array.sort(function(a, b) {return a[propiedad] - b[propiedad] } ).filter((element) => (element[propiedad])).slice(0,10)
     }else {
-        top10Beers = array.sort(function(a, b) {return b[propiedad] - a[propiedad] } ).filter((element, index) => (index <  10)).map((element) => ({name:element.name, abv: element.abv, ibu: element.ibu, [propiedad]: element[propiedad]} ))
+        top10Beers = array.sort(function(a, b) {return b[propiedad] - a[propiedad] } ).filter((element) => (element[propiedad])).slice(0,10)
     }
     console.table(top10Beers)
 }
